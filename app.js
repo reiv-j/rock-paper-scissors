@@ -9,8 +9,9 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+function playRound() {
+    let playerSelection = prompt("What's your choice?").toLowerCase()
+    let computerSelection = getComputerChoice();
 
     console.log("Player selection: ", playerSelection);
     console.log("Computer selection: ", computerSelection);
@@ -40,4 +41,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game() {
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+}
 
