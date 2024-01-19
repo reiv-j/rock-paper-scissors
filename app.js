@@ -17,25 +17,25 @@ function playRound() {
     console.log("Computer selection: ", computerSelection);
 
     if (playerSelection === computerSelection) {
-        return "It's a tie!";
+        console.log("It's a tie!");
     } else {
         if (playerSelection === 'rock') {
             if (computerSelection === 'scissors') {
-                return "Player wins!";
+                console.log("Player wins!");
             } else {
-                return "Computer wins!";
+                console.log("Computer wins!");
             }
         } else if (playerSelection === "paper") {
             if (computerSelection === "rock") {
-                return "Player wins!";
+                console.log("Player wins!");
             } else {
-                return "Computer wins!";
+                console.log("Computer wins!");
             }
         } else {
             if (computerSelection === "paper") {
-                return "Player wins!";
+                console.log("Player wins!");
             } else {
-                return "Computer wins!"
+                console.log("Computer wins!");
             }
         }
     }
