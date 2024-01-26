@@ -1,3 +1,15 @@
+const playerScoreDisplay = document.querySelector("#player-score");
+const computerScoreDisplay = document.querySelector("#computer-score");
+const messageDisplay = document.querySelector("#message");
+
+const rockBtn = document.querySelector("#rock-btn");
+const paperBtn = document.querySelector("#paper-btn");
+const scissorsBtn = document.querySelector("#scissors-btn");
+const newGameBtn = document.querySelector("#new-game-btn");
+
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     const rand = Math.floor(Math.random() * 3);
     if (rand === 0) {
@@ -13,7 +25,7 @@ function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
 
     if (playerSelection === computerSelection) {
-        messageDisplay.textContent = `It's a tie! Player chose ${playerSelection}. Computer chose ${computerSelection}`
+        messageDisplay.textContent = `It's a tie! Player chose ${playerSelection.toUpperCase()}. Computer chose ${computerSelection.toUpperCase()}`
 
     } else {
         if (playerSelection === 'rock') {
@@ -64,17 +76,18 @@ function checkWin() {
     }
 }
 
+function newGame() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreDisplay.textContent = "0";
+    computerScoreDisplay.textContent = "0";
+    messageDisplay.textContent = "Make a choice:";
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorsBtn.disabled = false;
+}
 
-const playerScoreDisplay = document.querySelector("#player-score");
-const computerScoreDisplay = document.querySelector("#computer-score");
-const messageDisplay = document.querySelector("#message");
-
-let playerScore = 0;
-let computerScore = 0;
-
-const rockBtn = document.querySelector("#rock-btn");
-const paperBtn = document.querySelector("#paper-btn");
-const scissorsBtn = document.querySelector("#scissors-btn");
+newGameBtn.addEventListener("click", newGame);
 
 rockBtn.addEventListener("click", function () {
     playRound("rock");
