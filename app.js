@@ -50,6 +50,20 @@ function playRound(playerSelection) {
     }
 }
 
+function checkWin() {
+    if (playerScore === 5) {
+        messageDisplay.textContent = "***** PLAYER WINS!!!!! *****";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+    } else if (computerScore === 5) {
+        messageDisplay.textContent = "***** COMPUTER WINS!!!!! *****";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+    }
+}
+
 
 const playerScoreDisplay = document.querySelector("#player-score");
 const computerScoreDisplay = document.querySelector("#computer-score");
@@ -64,10 +78,13 @@ const scissorsBtn = document.querySelector("#scissors-btn");
 
 rockBtn.addEventListener("click", function () {
     playRound("rock");
+    checkWin();
 })
 paperBtn.addEventListener("click", function () {
     playRound("paper");
+    checkWin();
 })
 scissorsBtn.addEventListener("click", function () {
     playRound("scissors");
+    checkWin();
 })
