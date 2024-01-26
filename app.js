@@ -12,32 +12,62 @@ function getComputerChoice() {
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
 
-    console.log("Player selection: ", playerSelection);
-    console.log("Computer selection: ", computerSelection);
-
     if (playerSelection === computerSelection) {
-        console.log("It's a tie!");
+        messageDisplay.textContent = `It's a tie! Player chose ${playerSelection}. Computer chose ${computerSelection}`
+
     } else {
         if (playerSelection === 'rock') {
             if (computerSelection === 'scissors') {
-                console.log("Player wins!");
+                messageDisplay.textContent = `Player chose ROCK. Computer chose SCISSORS`
+                playerScore++;
+                playerScoreDisplay.textContent = playerScore;
             } else {
-                console.log("Computer wins!");
+                messageDisplay.textContent = `Player chose ROCK. Computer chose PAPER`
+                computerScore++;
+                computerScoreDisplay.textContent = computerScore;
             }
         } else if (playerSelection === "paper") {
             if (computerSelection === "rock") {
-                console.log("Player wins!");
+                messageDisplay.textContent = `Player chose PAPER. Computer chose ROCK`
+                playerScore++;
+                playerScoreDisplay.textContent = playerScore;
             } else {
-                console.log("Computer wins!");
+                messageDisplay.textContent = `Player chose PAPER. Computer chose SCISSORS`
+                computerScore++;
+                computerScoreDisplay.textContent = computerScore;
             }
         } else {
             if (computerSelection === "paper") {
-                console.log("Player wins!");
+                messageDisplay.textContent = `Player chose SCISSORS. Computer chose PAPER`
+                playerScore++;
+                playerScoreDisplay.textContent = playerScore;
             } else {
-                console.log("Computer wins!");
+                messageDisplay.textContent = `Player chose SCISSORS. Computer chose ROCK`
+                computerScore++;
+                computerScoreDisplay.textContent = computerScore;
             }
         }
     }
 }
 
 
+const playerScoreDisplay = document.querySelector("#player-score");
+const computerScoreDisplay = document.querySelector("#computer-score");
+const messageDisplay = document.querySelector("#message");
+
+let playerScore = 0;
+let computerScore = 0;
+
+const rockBtn = document.querySelector("#rock-btn");
+const paperBtn = document.querySelector("#paper-btn");
+const scissorsBtn = document.querySelector("#scissors-btn");
+
+rockBtn.addEventListener("click", function () {
+    playRound("rock");
+})
+paperBtn.addEventListener("click", function () {
+    playRound("paper");
+})
+scissorsBtn.addEventListener("click", function () {
+    playRound("scissors");
+})
